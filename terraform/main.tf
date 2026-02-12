@@ -15,9 +15,7 @@ module "eks" {
   allowed_public_ip = var.allowed_public_ip
 }
 
-module "ecr" {
-  source = "./ecr"
-}
+
 
 module "rds" {
   source          = "./rds"

@@ -48,8 +48,4 @@ output "rds_endpoint" {
   value       = module.rds.endpoint
 }
 
-# ECR Outputs
-output "ecr_repository_urls" {
-  description = "List of ECR repository URLs"
-  value       = module.ecr.repository_urls
-}
+
