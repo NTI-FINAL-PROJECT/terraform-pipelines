@@ -35,7 +35,7 @@ resource "aws_db_instance" "backend" {
   identifier             = "backend-db"
   allocated_storage      = 20
   engine                 = "postgres"
-  engine_version         = "15.5"
+  engine_version         = "15"
   instance_class         = "db.t4g.micro"
   db_name                = "backend"
   username               = "appuser"
