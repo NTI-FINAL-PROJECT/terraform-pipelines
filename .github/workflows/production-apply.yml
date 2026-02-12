@@ -74,7 +74,6 @@ jobs:
             "${{ steps.outputs.outputs.eks_cluster_name }}" \
             "${{ steps.outputs.outputs.eks_cluster_endpoint }}" \
             "${{ steps.outputs.outputs.rds_endpoint }}" \
-
             "${{ env.AWS_REGION }}"
 
       - name: Check Apply Status
