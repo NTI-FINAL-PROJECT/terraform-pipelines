@@ -16,10 +16,6 @@ resource "aws_iam_policy" "fluentbit_policy" {
   })
 }
 
-data "aws_iam_openid_connect_provider" "oidc" {
-  url = data.aws_eks_cluster.cluster.identity[0].oidc[0].issuer
-}
-
 resource "aws_iam_role" "fluentbit_role" {
   name = "eks-fluentbit-role"
 
@@ -28,7 +24,7 @@ resource "aws_iam_role" "fluentbit_role" {
     Statement = [{
       Effect = "Allow"
       Principal = {
-        Federated = data.aws_iam_openid_connect_provider.oidc.arn
+        Federated = var.oidc_provider_arn
       }
       Action = "sts:AssumeRoleWithWebIdentity"
     }]
