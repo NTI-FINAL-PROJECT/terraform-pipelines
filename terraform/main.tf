@@ -29,3 +29,15 @@ module "rds" {
 module "argocd" {
   source = "./argocd"
 }
+
+module "ingress" {
+  source = "./ingress"
+}
+
+module "cloudwatch" {
+  source = "./cloudwatch"
+
+  cluster_name      = var.cluster_name
+  region            = var.aws_region
+  oidc_provider_arn = module.eks.oidc_provider_arn
+}
