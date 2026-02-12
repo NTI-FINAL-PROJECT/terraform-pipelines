@@ -15,9 +15,7 @@ module "eks" {
   allowed_public_ip = var.allowed_public_ip
 }
 
-module "ecr" {
-  source = "./ecr"
-}
+
 
 module "rds" {
   source          = "./rds"
@@ -28,4 +26,16 @@ module "rds" {
 
 module "argocd" {
   source = "./argocd"
+}
+
+module "ingress" {
+  source = "./ingress"
+}
+
+module "cloudwatch" {
+  source = "./cloudwatch"
+
+  cluster_name      = var.cluster_name
+  region            = var.aws_region
+  oidc_provider_arn = module.eks.oidc_provider_arn
 }

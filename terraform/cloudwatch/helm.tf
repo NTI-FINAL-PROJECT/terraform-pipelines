@@ -16,7 +16,7 @@ resource "helm_release" "fluentbit" {
 
   set {
     name  = "cloudWatch.region"
-    value = "us-east-1"
+    value = var.region
   }
 
   set {

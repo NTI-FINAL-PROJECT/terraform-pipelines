@@ -39,7 +39,7 @@ resource "aws_db_instance" "backend" {
   instance_class         = "db.t4g.micro"
   db_name                = "backend"
   username               = "appuser"
-  password               = "apppass"
+  password               = "apppassword123"
   parameter_group_name   = "default.postgres16"
   skip_final_snapshot    = true
   db_subnet_group_name   = aws_db_subnet_group.rds.name
